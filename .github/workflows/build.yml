@@ -8,26 +8,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-          - name: Checkout code
-            uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-          - name: Clean npm cache
-            run: npm cache clean --force
-                        
-          - name: Install dependencies
-            run: npm install
-            
-            - name: Verify npx is working
-            run: npx --version
+      - name: Clean npm cache
+        run: npm cache clean --force
 
-            - name: Verify npm packages
-            run: npm ls
+      - name: Install dependencies
+        run: npm install
 
-            - name: List plugins in node_modules
-            run: ls -la node_modules
+      - name: Verify npx is working
+        run: npx --version
 
-          - name: Build app
-            run: npx nx build --verbose
+      - name: Verify npm packages
+        run: npm ls
 
-          - name: Run unit tests
-            run: npx nx test
+      - name: List plugins in node_modules
+        run: ls -la node_modules
+
+      - name: Build app
+        run: npx nx build --verbose
+
+      - name: Run unit tests
+        run: npx nx test
