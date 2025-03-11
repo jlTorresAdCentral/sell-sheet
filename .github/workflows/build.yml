@@ -11,25 +11,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: 'npm'
-
       - name: Clean npm cache
         run: npm cache clean --force
 
       - name: Delete node_modules and package-lock.json
         run: rm -rf node_modules package-lock.json
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies using npm ci
+        run: npm ci
 
-      - name: Verify nx is installed
+      - name: Verify nx installation
         run: npm ls nx
-        
-      - name: Intentando con serve
-        run: npx nx serve
 
       - name: Build app
         run: npx nx build --verbose
