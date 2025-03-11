@@ -2,11 +2,26 @@
   "name": "sell-sheet",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "includedScripts": [],
-  "sourceRoot": "./src",
+  "sourceRoot": "src",
   "projectType": "application",
   "tags": [],
   "// targets": "to see all targets run: nx show project sell-sheet --web",
   "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "options": {
+        "outputPath": "dist/apps/sell-sheet",
+        "webpackConfig": "webpack.config.js"
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "options": {
+        "buildTarget": "sell-sheet:build",
+        "port": 4200,
+        "watch": true
+      }
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {

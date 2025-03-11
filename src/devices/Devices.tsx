@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getDeviceBrands, getDeviceTypes } from './repository/device.repository';
+import { DeviceBrand } from './model/DeviceBrand';
 
 const DevicesComponent = () => {
     const [loading, setLoading] = useState(true)
