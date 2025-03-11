@@ -7,6 +7,12 @@
   "tags": [],
   "// targets": "to see all targets run: nx show project sell-sheet --web",
   "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "options": {
+        "outputPath": "dist/apps/sell-sheet"
+      }
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
