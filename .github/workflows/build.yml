@@ -15,7 +15,7 @@ jobs:
             run: npm install
 
           - name: Build app
-            run: npx nx build
+            run: npx nx build --verbose
 
           - name: Run unit tests
             run: npx nx test
