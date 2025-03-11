@@ -19,10 +19,7 @@ jobs:
 
       - name: Verify nx is installed
         run: npm ls nx
-
-      - name: Delete node_modules and package-lock.json
-        run: rm -rf node_modules package-lock.json
-
+        
       - name: Intentando con serve
         run: npx nx serve
 
