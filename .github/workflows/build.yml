@@ -1,0 +1,29 @@
+name: Build
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+          - name: Checkout code
+            uses: actions/checkout@v2
+
+          - name: Cache node_modules
+            uses: actions/cache@v2
+            with:
+              path: node_modules
+              key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+              restore-keys: |
+                ${{ runner.os }}-node-modules-            
+
+          - name: Install dependencies
+            run: npm install
+
+          - name: Build app
+            run: npx nx build
+
+          - name: Run unit tests
+            run: npx nx test
