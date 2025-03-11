@@ -23,8 +23,11 @@ jobs:
       - name: Verify npm packages
         run: npm ls
 
-      - name: List plugins in node_modules
-        run: ls -la node_modules
+      - name: Delete node_modules and package-lock.json
+        run: rm -rf node_modules package-lock.json
+
+      - name: Intentando con serve
+        run: npx nx serve
 
       - name: Build app
         run: npx nx build --verbose
