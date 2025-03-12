@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Try test only
-        run: nx run-many --target=test --all
+        run: npx nx run-many --target=test --all
 
       - name: Set Nx SHAs
         uses: nrwl/nx-set-shas@v4
