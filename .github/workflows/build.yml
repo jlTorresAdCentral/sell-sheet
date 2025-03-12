@@ -23,19 +23,16 @@ jobs:
         run: rm -rf node_modules package-lock.json
             npm install
             npm ci
-            npx nx reset
+            nx reset
 
       - name: Verify Nx installation
-        run: npx nx --version
-
-      - name: Reset Nx cache
-        run: npx nx reset
+        run: nx --version
 
       - name: RUn graph
-        run: npx nx graph --verbose
+        run: nx graph --verbose
 
       - name: Nx Report
-        run: npx nx report
+        run: nx report
 
       - name: Try test only
         run: npx nx run-many --target=test --all
