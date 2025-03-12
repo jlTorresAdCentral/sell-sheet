@@ -1,37 +1,33 @@
-const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-
 module.exports = function (config) {
     return merge(config, {
-        entry: '/src/main.tsx', // Usa main.tsx como el archivo de entrada
+        entry: './src/main.tsx', // Usa una ruta relativa
         mode: 'development',
         devtool: 'source-map',
         output: {
             publicPath: '/',
-            filename: 'main.bundle.js', // Nombre del archivo de salida para el bundle
+            filename: 'main.bundle.js',
         },
         module: {
             rules: [
                 {
-                    test: /\.tsx?$/, // Maneja archivos .ts y .tsx
+                    test: /\.tsx?$/,
                     use: 'ts-loader',
                     exclude: /node_modules/,
                 },
                 {
-                    test: /\.js$/, // Si usas JavaScript también
+                    test: /\.js$/,
                     use: 'babel-loader',
                     exclude: /node_modules/,
                 },
             ],
         },
         resolve: {
-            extensions: ['.ts', '.tsx', '.js'], // Permite resolver archivos .ts, .tsx, y .js
+            extensions: ['.ts', '.tsx', '.js'],
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: '/src/index.html', // Usa este archivo como plantilla
-                filename: 'index.html', // Nombre del archivo de salida
+                template: './src/index.html', // Usa una ruta relativa
+                filename: 'index.html',
             }),
         ],
     });
