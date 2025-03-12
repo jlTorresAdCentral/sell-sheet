@@ -21,8 +21,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          rm -rf node_modules package-lock.json
-          npm ci
+          rm -rf node_modules
+          npm ci || npm install  # Usa `npm install` si `package-lock.json` no existe
 
       - name: Reset Nx cache
         run: npx nx reset
