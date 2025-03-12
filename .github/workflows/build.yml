@@ -27,18 +27,6 @@ jobs:
       - name: Reset Nx cache
         run: npx nx reset
 
-      - name: Verify Nx installation
-        run: npx nx --version
-
-      - name: Nx Report
-        run: npx nx report --verbose
-
-      - name: Build
-        run: npx nx build --verbose
-
-      - name: Try test only
-        run: npx nx run-many --target=test --all
-
       - name: Set Nx SHAs
         uses: nrwl/nx-set-shas@v4
 

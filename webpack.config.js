@@ -1,4 +1,5 @@
 const { merge } = require('webpack-merge');
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -32,6 +33,9 @@ module.exports = function (config) {
             new HtmlWebpackPlugin({
                 template: '/src/index.html', // Usa este archivo como plantilla
                 filename: 'index.html', // Nombre del archivo de salida
+            }),
+            new webpack.DefinePlugin({
+                "process.env": JSON.stringify(process.env),
             }),
         ],
     });
