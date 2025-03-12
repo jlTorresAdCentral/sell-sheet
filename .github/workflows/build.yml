@@ -31,7 +31,7 @@ jobs:
         run: npx nx --version
 
       - name: Build
-        run: npx nx build
+        run: npx nx build --verbose
 
       - name: Nx Report
         run: npx nx report
