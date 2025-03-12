@@ -25,6 +25,9 @@ jobs:
       - name: Verify Nx installation
         run: npx nx --version
 
+      - name: Reset Nx cache
+        run: npx nx reset
+
       - name: Nx Report
         run: npx nx report
 
