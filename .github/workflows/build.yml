@@ -30,6 +30,9 @@ jobs:
       - name: Verify Nx installation
         run: npx nx --version
 
+      - name: Build
+        run: npx nx build
+
       - name: Nx Report
         run: npx nx report
 
