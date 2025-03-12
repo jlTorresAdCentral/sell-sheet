@@ -30,9 +30,6 @@ jobs:
       - name: Verify Nx installation
         run: npx nx --version
 
-      - name: RUn graph
-        run: npx nx graph --verbose
-
       - name: Nx Report
         run: npx nx report
 
