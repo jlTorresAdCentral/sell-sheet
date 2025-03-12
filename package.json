@@ -8,9 +8,7 @@
     "build": "nx build",
     "test": "nx test"
   },
-  "nx": {
-    "includedScripts": []
-  },
+  "nx": {},
   "dependencies": {
     "axios": "^1.8.2",
     "react": "^19.0.0",
