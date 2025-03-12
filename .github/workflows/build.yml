@@ -26,13 +26,13 @@ jobs:
             nx reset
 
       - name: Verify Nx installation
-        run: nx --version
+        run: npx nx --version
 
       - name: RUn graph
-        run: nx graph --verbose
+        run: npx nx graph --verbose
 
       - name: Nx Report
-        run: nx report
+        run: npx nx report
 
       - name: Try test only
         run: npx nx run-many --target=test --all
