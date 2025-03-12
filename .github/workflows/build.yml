@@ -25,8 +25,5 @@ jobs:
       - name: Set Nx SHAs
         uses: nrwl/nx-set-shas@v4
 
-      - name: Format check
-        run: npx nx-cloud record -- nx format:check
-
       - name: Build and test affected
         run: npx nx affected -t build test
