@@ -22,5 +22,20 @@ jobs:
       - name: Build app
         run: npx nx run-many --target=build --all --verbose
 
-      - name: Run unit tests
-        run: npx nx run-many --target=test --all --verbose
+      - name: Checkout code
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
+          
+      - run: npm ci
+
+      - uses: nrwl/nx-set-shas@v4
+
+      - run: npx nx-cloud record -- nx format:check
+
+      - name: Build and test app
+      - run: npx nx affected -t lint test build
