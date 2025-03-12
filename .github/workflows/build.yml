@@ -30,11 +30,11 @@ jobs:
       - name: Verify Nx installation
         run: npx nx --version
 
+      - name: Nx Report
+        run: npx nx report --verbose
+
       - name: Build
         run: npx nx build --verbose
-
-      - name: Nx Report
-        run: npx nx report
 
       - name: Try test only
         run: npx nx run-many --target=test --all
