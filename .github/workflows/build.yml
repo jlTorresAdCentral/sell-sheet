@@ -9,7 +9,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Clean npm cache
         run: npm cache clean --force
@@ -18,7 +20,7 @@ jobs:
         run: npm install
 
       - name: Build app
-        run: npx nx build --verbose
+        run: npx nx run-many --target=build --all --verbose
 
       - name: Run unit tests
-        run: npx nx test --verbose
+        run: npx nx run-many --target=test --all --verbose
