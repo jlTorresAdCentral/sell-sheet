@@ -6,6 +6,11 @@ on:
       - 'staging-*'
       - 'prod-*'
 
+permissions:
+  id-token: write  
+  pages: write     
+  contents: read 
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -43,6 +48,8 @@ jobs:
         with:
           path: dist
 
-      - name: Deploy Github Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          - name: Deploy GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v4
+          with:
+            environment: github-pages        
