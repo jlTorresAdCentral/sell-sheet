@@ -5,7 +5,7 @@ const path = require('path');
 
 module.exports = function (config) {
     return merge(config, {
-        entry: '/src/main.tsx', // Usa main.tsx como el archivo de entrada
+        entry: path.resolve(__dirname, 'src/main.tsx'),
         mode: 'development',
         devtool: 'source-map',
         output: {
@@ -31,7 +31,7 @@ module.exports = function (config) {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: '/src/index.html', // Usa este archivo como plantilla
+                template: path.resolve(__dirname, 'src/index.html'),
                 filename: 'index.html', // Nombre del archivo de salida
             }),
             new webpack.DefinePlugin({
