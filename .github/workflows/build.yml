@@ -24,13 +24,10 @@ jobs:
           rm -rf node_modules
           rm -rf node_modules/.cache/nx
           rm -rf .nx/cache
-          npm ci || npm install  # Usa `npm install` si `package-lock.json` no existe
-
-      - name: Reset NX Cache
-        run: npx nx reset
+          npm install
 
       - name: Build
-        run: NX_CLOUD=0 npx nx build --verbose
+        run: npx nx build --verbose
 
       - name: Test
         run: npx nx test --verbose
