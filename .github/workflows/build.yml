@@ -30,7 +30,7 @@ jobs:
         run: npx nx reset
 
       - name: Build
-        run: npx nx build --verbose
+        run: NX_CLOUD=0 npx nx build --verbose
 
       - name: Test
         run: npx nx test --verbose
