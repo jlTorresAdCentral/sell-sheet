@@ -48,8 +48,8 @@ jobs:
         with:
           path: dist
 
-          - name: Deploy GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v4
-          with:
-            environment: github-pages        
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          environment: github-pages
