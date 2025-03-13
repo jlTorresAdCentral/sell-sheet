@@ -22,6 +22,8 @@ jobs:
       - name: Install dependencies
         run: |
           rm -rf node_modules
+          rm -rf node_modules/.cache/nx
+          rm -rf .nx/cache
           npm ci || npm install  # Usa `npm install` si `package-lock.json` no existe
 
       - name: Reset NX Cache
