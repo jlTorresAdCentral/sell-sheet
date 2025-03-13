@@ -26,6 +26,9 @@ jobs:
           rm -rf .nx/cache
           npm install
 
+      - name: Clean Nx Cache
+        run: rm -rf .nx/cache
+
       - name: Build
         run: npx nx build --verbose
 
