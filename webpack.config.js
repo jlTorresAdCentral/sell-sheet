@@ -24,6 +24,11 @@ module.exports = function (config) {
                     use: 'babel-loader',
                     exclude: /node_modules/,
                 },
+                {
+                    test: /\.css$/, // Maneja archivos .css
+                    use: ['style-loader', 'css-loader'],
+                    exclude: /node_modules/,
+                },
             ],
         },
         resolve: {
