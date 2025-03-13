@@ -27,8 +27,10 @@ const DummyComponent = () => {
             setComments(await searchDummyCommentData(searchQuery))
         }
 
-        fetchPosts()
-        fetchComments()
+        if (searchQuery) {
+            fetchPosts()
+            fetchComments()
+        }
     }, [searchQuery])
 
     return (

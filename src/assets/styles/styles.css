@@ -18,7 +18,6 @@ body {
 .separate-tabs {
     display: flex;
     flex-direction: row;
-    align-items: center;
     column-gap: 20px;
     justify-content: space-evenly;
 }
