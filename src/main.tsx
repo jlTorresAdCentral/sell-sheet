@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import DevicesComponent from './devices/Devices';
 import './assets/styles/styles.css';
+import DummyComponent from './dummy/DummyComponent';
 
 
 const root = ReactDOM.createRoot(
@@ -10,6 +10,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <StrictMode>
-    <DevicesComponent />
+    <DummyComponent />
   </StrictMode>
 );

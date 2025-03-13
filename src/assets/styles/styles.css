@@ -1,6 +1,8 @@
 body {
     background-color: rgb(44 59 108);
     color: white;
+    justify-content: center;
+    text-align: center;
 }
 
 .input-test {
@@ -11,4 +13,12 @@ body {
     outline: none;
     padding: 0px 10px;
     box-sizing: border-box;
+}
+
+.separate-tabs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+    justify-content: space-evenly;
 }
