@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(44 59 108);
+    color: white;
+}
+
+.input-test {
+    height: 30px;
+    width: 200px;
+    border: 1px solid rgb(85, 83, 83);
+    border-radius: 4px;
+    outline: none;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}

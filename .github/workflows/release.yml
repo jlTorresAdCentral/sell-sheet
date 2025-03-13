@@ -1,0 +1,55 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - 'staging-*'
+      - 'prod-*'
+
+permissions:
+  id-token: write  
+  pages: write     
+  contents: read 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set environment variables
+        run: |
+          if [[ $GITHUB_REF_NAME == staging-* ]]; then
+            echo "Using Staging environment"
+            cp .env.staging .env
+          elif [[ $GITHUB_REF_NAME == prod-* ]]; then
+            echo "Using Production environment"
+            cp .env.production .env
+          else
+            echo "Using Integration environment"
+            cp .env.integration .env
+          fi
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npx nx build --prod --verbose
+
+      - name: Configure Github Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          environment: github-pages

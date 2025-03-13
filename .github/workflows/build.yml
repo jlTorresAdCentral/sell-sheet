@@ -9,16 +9,28 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Clean npm cache
-        run: npm cache clean --force
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          rm -rf node_modules
+          rm -rf node_modules/.cache/nx
+          rm -rf .nx/cache
+          npm install
 
-      - name: Build app
+      - name: Clean Nx Cache
+        run: rm -rf .nx/cache
+
+      - name: Build
         run: npx nx build --verbose
 
-      - name: Run unit tests
+      - name: Test
         run: npx nx test --verbose
