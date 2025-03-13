@@ -24,11 +24,8 @@ jobs:
           rm -rf node_modules
           npm ci || npm install  # Usa `npm install` si `package-lock.json` no existe
 
-      - name: Reset Nx cache
-        run: npx nx reset
+      - name: Build
+        run: npx nx build --verbose
 
-      - name: Set Nx SHAs
-        uses: nrwl/nx-set-shas@v4
-
-      - name: Build and test affected
-        run: npx nx affected -t build test
+      - name: Test
+        run: npx nx test --verbose
