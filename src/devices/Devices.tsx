@@ -7,6 +7,7 @@ const DevicesComponent = () => {
     const [deviceTypes, setDeviceTypes] = useState<string[]>([])
     const [deviceBrands, setDeviceBrands] = useState<DeviceBrand[]>([])
     const [deviceTypeSelected, setDeviceTypeSelected] = useState<string | null>(null)
+    const [title, setTitle] = useState<string>("")
 
     useEffect(() => {
         setTimeout(() => {
@@ -20,6 +21,15 @@ const DevicesComponent = () => {
         }, 2000)
     }, [])
 
+    useEffect(() => {
+        const searchDeviceBrands = async () => {
+            const responseTypes = await getDeviceBrands(title);
+            setDeviceBrands(responseTypes);
+        };
+
+        searchDeviceBrands();
+    }, [title])
+
     const onSelectDeviceType = (async (deviceType: string) => {
         setDeviceTypeSelected(deviceType)
         const resultado = await getDeviceBrands(deviceType)
@@ -28,7 +38,18 @@ const DevicesComponent = () => {
 
     return (
         <div>
-            <h1>Dispositivos:</h1>
+            <h1>Pagina Dummy</h1>
+            <h2>{title}</h2>
+
+            <input
+                className='input-test'
+                placeholder='Busca...'
+                value={title}
+                onChange={(event) => {
+                    setTitle(event.target.value)
+                }}
+            />
+
             {loading ? (
                 <h2>Cargando...</h2>
             ) : (
