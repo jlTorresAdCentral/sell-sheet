@@ -9,7 +9,7 @@ module.exports = function (config) {
         mode: 'development',
         devtool: 'source-map',
         output: {
-            publicPath: '/',
+            publicPath: '/sell-sheet/',
             filename: 'main.bundle.js', // Nombre del archivo de salida para el bundle
         },
         module: {
