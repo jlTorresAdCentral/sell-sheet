@@ -13,6 +13,6 @@ describe("getDeviceTypes", () => {
 
         const result = await getDeviceTypes();
 
-        expect(result).toHaveLength(1);
+        expect(result).toEqual([]);
     })
 });

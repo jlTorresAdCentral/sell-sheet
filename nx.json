@@ -19,6 +19,7 @@
       "{workspaceRoot}/.github/workflows/ci.yml"
     ]
   },
+  "nxCloudId": "67cf24af659dec7d400a15db",
   "plugins": [
     {
       "plugin": "@nx/eslint/plugin",
