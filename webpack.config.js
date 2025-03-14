@@ -5,10 +5,11 @@ const path = require('path');
 
 module.exports = function (config) {
     return merge(config, {
-        entry: path.resolve(__dirname, 'src/App.tsx'),
+        entry: path.resolve(__dirname, 'src/main.tsx'),
         mode: 'development',
         devtool: 'source-map',
         output: {
+            path: path.resolve(__dirname, 'dist'), // Asegúrate de que los archivos se generen en esta carpeta
             publicPath: '/sell-sheet/',
             filename: 'main.bundle.js', // Nombre del archivo de salida para el bundle
         },
