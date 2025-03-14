@@ -22,7 +22,6 @@ export const getDeviceBrands = async (deviceType: string): Promise<DeviceBrand[]
 
         return response.data.brands as DeviceBrand[]
     } catch (error) {
-        console.error('Error getDeviceBrands', error);
         return []
     }
 }

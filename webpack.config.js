@@ -5,7 +5,7 @@ const path = require('path');
 
 module.exports = function (config) {
     return merge(config, {
-        entry: path.resolve(__dirname, 'src/main.tsx'),
+        entry: path.resolve(__dirname, 'src/App.tsx'),
         mode: 'development',
         devtool: 'source-map',
         output: {
@@ -26,13 +26,16 @@ module.exports = function (config) {
                 },
                 {
                     test: /\.css$/, // Maneja archivos .css
-                    use: ['style-loader', 'css-loader'],
+                    use: ['style-loader', 'css-loader', 'postcss-loader'],
                     exclude: /node_modules/,
                 },
             ],
         },
         resolve: {
             extensions: ['.ts', '.tsx', '.js'], // Permite resolver archivos .ts, .tsx, y .js
+            //alias: {
+            //    src: path.resolve(__dirname, 'src/'), // Esto resolverá 'src' como tu directorio base
+            //},
         },
         plugins: [
             new HtmlWebpackPlugin({
