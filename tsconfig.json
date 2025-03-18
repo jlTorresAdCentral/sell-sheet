@@ -28,7 +28,10 @@
     ]
   },
   "files": [],
-  "include": [],
+  "include": [
+    "src",
+    "styled-system"
+  ],
   "references": [
     {
       "path": "./tsconfig.app.json"

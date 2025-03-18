@@ -10,7 +10,7 @@ module.exports = function (config) {
         devtool: 'source-map',
         output: {
             path: path.resolve(__dirname, 'dist'), // Asegúrate de que los archivos se generen en esta carpeta
-            publicPath: '/sell-sheet/',
+            publicPath: '/',
             filename: 'main.bundle.js', // Nombre del archivo de salida para el bundle
         },
         module: {
@@ -27,7 +27,7 @@ module.exports = function (config) {
                 },
                 {
                     test: /\.css$/, // Maneja archivos .css
-                    use: ['style-loader', 'css-loader', 'postcss-loader'],
+                    use: ['style-loader', 'css-loader'],
                     exclude: /node_modules/,
                 },
             ],
