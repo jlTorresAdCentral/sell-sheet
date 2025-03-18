@@ -10,7 +10,7 @@ module.exports = function (config) {
         devtool: 'source-map',
         output: {
             path: path.resolve(__dirname, 'dist'), // Asegúrate de que los archivos se generen en esta carpeta
-            publicPath: '/',
+            publicPath: '/sell-sheet/',
             filename: 'main.bundle.js', // Nombre del archivo de salida para el bundle
         },
         module: {
